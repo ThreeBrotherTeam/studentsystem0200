@@ -7,9 +7,15 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-
 	<import resource="classpath:connection.xml" />
 
+	<bean id="userDao" class="com.training.dao.impl.UserDaoImpl">
+		<property name="commonDao" ref="commonDao"/>
+	</bean>
 	
+	<bean id="userService" class="com.training.service.impl.UserServiceImpl">
+		<property name="userDao" ref="userDao"/>
+		<property name="commonService" ref="commonService"/>
+	</bean>
 	
 </beans>
