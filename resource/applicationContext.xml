@@ -14,9 +14,14 @@
 		<property name="commonDao" ref="commonDao"/>
 	</bean>
 	
+	<bean id="validator" class="com.training.validator.UserValidator"/>
+	
+	<bean id="md5Encoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
+	
 	<bean id="userService" class="com.training.service.impl.UserServiceImpl">
 		<property name="userDao" ref="userDao"/>
 		<property name="commonService" ref="commonService"/>
+		<property name="md5Encoder" ref="md5Encoder"/>
 	</bean>
 	
 
