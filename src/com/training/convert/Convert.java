@@ -2,7 +2,7 @@ package com.training.convert;
 
 public interface Convert<K, V> {
 
-	public V createTarget();
+	V createTarget();
 
-	public V convert(K source);
+	V convert(K source);
 }
