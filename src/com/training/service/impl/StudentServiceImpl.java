@@ -1,4 +1,4 @@
-package com.training.common.service.impl;
+package com.training.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
