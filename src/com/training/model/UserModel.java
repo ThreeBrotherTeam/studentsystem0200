@@ -13,6 +13,10 @@ public class UserModel {
 
 	public static final String NAME = "name";
 	public static final String PASSWORD = "password";
+	public static final Object ID = "id";
+	public static final Object MOBILE = "mobile";
+	public static final Object AVAILABLE = "available";
+	public static final Object CREATEDATE = "createDate";
 	private Integer id;
 	private String name;
 	private String mobile;

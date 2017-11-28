@@ -1,6 +1,7 @@
 package com.training.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -53,6 +54,12 @@ public class LoginController {
 		}
 
 		session.setAttribute("userData", userData);
+
+		if (userForm.isRememberMe()) {
+			Cookie c = new Cookie("rememberMe", userForm.getName() + "(&)" + userForm.getPassword());
+			c.setMaxAge(60 * 60 * 24 * 3);
+			response.addCookie(c);
+		}
 
 		return "redirect:loadStudentsByFields";
 	}
