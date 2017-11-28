@@ -7,13 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.hibernate.Criteria;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
-import org.springframework.jdbc.core.JdbcTemplate;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -30,15 +23,6 @@ public class CommonDao {
 
 	private JdbcTemplate jdbcTemplate;
 
-	private String name;
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 
 	public <T> void saveOrUpdateEntity(T entry) {
 		Session session = this.getSessionFactory().getCurrentSession();
@@ -251,12 +235,12 @@ public class CommonDao {
 	}
 
 	// 根据ID查询 单个 对象
-	public <T> Object load(Class clazz, int id) {
+	public <T> Object load(Class<T> clazz, int id) {
 		return this.getSessionFactory().getCurrentSession().load(clazz, id);
 	}
 
 	// 根据ID查询 单个 对象
-	public <T> Object get(Class clazz, int id) {
+	public <T> Object get(Class<T> clazz, int id) {
 		return this.getSessionFactory().getCurrentSession().get(clazz, id);
 	}
 
