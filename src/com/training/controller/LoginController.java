@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.training.data.UserData;
 import com.training.form.UserForm;
@@ -27,11 +28,17 @@ public class LoginController {
 		return "user/login";
 	}
 
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(UserForm userForm, BindingResult bindingResult, HttpSession session) {
 
 		validator.validate(userForm, bindingResult);
 
 		if (bindingResult.hasErrors()) {
+			return "user/login";
+		}
+
+		String verifyCode = (String) session.getAttribute("verifyCode");
+		if (!verifyCode.equals(userForm.getVerifyCode())) {
 			return "user/login";
 		}
 
@@ -42,6 +49,6 @@ public class LoginController {
 
 		session.setAttribute("userData", userData);
 
-		return "student/loadStudentByFields";
+		return "redirect:loadStudentsByFields";
 	}
 }
