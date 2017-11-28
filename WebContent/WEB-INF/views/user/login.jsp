@@ -13,6 +13,8 @@
 	<form action="login" method="post">
 		<spring:message code="user.name"/><input type="text" name="name"><br>
 		<spring:message code="user.password"/><input type="password" name="password"><br>
+		<spring:message code="user.verifyCode"/><input type="text" name="verifyCode">
+		<img alt='<spring:message code="user.wait"/>' src="verifyCode"><br>
 		<spring:message code="user.rememberMe"/><input type="checkbox" name="rememberMe"><br>
 		<input type="submit" value='<spring:message code="user.login" />'>
 	</form>
