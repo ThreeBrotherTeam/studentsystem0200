@@ -38,8 +38,8 @@
 					<td><fmt:formatDate pattern="yyyy-MM-dd" value="${stu.birthday }" /></td>
 					<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${stu.createTime }" /></td>
 					<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${stu.modifyTime }" /></td>
-					<td><a href="loadStudentById?id=${stu.id }"><spring:message code="student.form.update" /></a></td>
-					<td><a href="deleteStudentById?id=${stu.id }"><spring:message code="student.form.delete" /></a></td>
+					<td><a href="modifyStudent?id=${stu.id }"><spring:message code="student.form.update" /></a></td>
+					<td><a href="deleteStudent?id=${stu.id }"><spring:message code="student.form.delete" /></a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
