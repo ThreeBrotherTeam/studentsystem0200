@@ -20,7 +20,7 @@
 	</bean>
 	
 
-	<bean id="studentService" class="com.training.common.service.impl.StudentServiceImpl">
+	<bean id="studentService" class="com.training.service.impl.StudentServiceImpl">
 		<property name="convert" ref="convert"></property>
 		<property name="studentModelConvert" ref="studentModelConvert"></property>
 		<property name="studentDao" ref="studentDao"></property>
