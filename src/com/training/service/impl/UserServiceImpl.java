@@ -44,6 +44,12 @@ public class UserServiceImpl implements UserService {
 		return userData;
 	}
 
+	@Override
+	public UserData queryUserByNameAndPassword(String name, String password) {
+		String newPassword = md5Encoder.encodePassword(password, name);
+		return userDao.queryUserByNameAndPassword(name, newPassword);
+	}
+
 	public UserDao getUserDao() {
 		return userDao;
 	}
