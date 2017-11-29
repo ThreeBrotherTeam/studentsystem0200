@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.training.data.StudentData;
@@ -27,6 +28,32 @@ public class StudentController {
 		page.setPageSize(pageSize);
 		SearchResult<StudentData> studentDatas = studentService.loadStudentsByFields(studentForm, page);
 		model.addAttribute("studentDatas", studentDatas);
-		return "students";
+		return "student/students";
 	}
+	@RequestMapping("/addStudent")
+	public String addStudent(){
+		return "student/addStudnet";
+	}
+	@RequestMapping(value="/addStudent",method=RequestMethod.POST)
+	public String addStudent(StudentForm studentForm){
+		studentService.addStudent(studentForm);
+		return "redirect:/loadStudentsByFields";
+	}
+	@RequestMapping("/deleteStudent")
+	public String deleteStudent(StudentForm studentForm){
+		studentService.deleteStudent(studentForm);
+		return "redirect:/loadStudentsByFields";
+	}
+	@RequestMapping("/modifyStudent")
+	public String modifyStudent(StudentForm studentForm,Model model){
+		StudentData studentData=studentService.queryStudnetById(studentForm);
+		model.addAttribute("studentData", studentData);
+		return "student/modifyStudent";
+	}
+	@RequestMapping(value="/modifyStudent",method=RequestMethod.POST)
+	public String modifyStudent(StudentForm studentForm){
+		studentService.modifyStudent(studentForm);
+		return "redirect:/loadStudentsByFields";
+	}
+	
 }
