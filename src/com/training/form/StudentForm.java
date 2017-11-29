@@ -9,7 +9,6 @@ public class StudentForm {
 	private String name;
 	private String clazz;
 	private String birthday;
-	private String createTime;
 	public Integer getId() {
 		return id;
 	}
@@ -34,12 +33,7 @@ public class StudentForm {
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
-	public String getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(String createTime) {
-		this.createTime = createTime;
-	}
+	
 
 	
 }

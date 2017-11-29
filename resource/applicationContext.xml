@@ -22,11 +22,17 @@
 
 	<bean id="studentService" class="com.training.common.service.impl.StudentServiceImpl">
 		<property name="convert" ref="convert"></property>
+		<property name="studentModelConvert" ref="studentModelConvert"></property>
 		<property name="studentDao" ref="studentDao"></property>
+		<property name="commonService" ref="commonService"></property>
 	</bean>
 	<bean id="convert" class="com.training.convert.StudentConvert"></bean>
+	<bean id="studentModelConvert" class="com.training.convert.StudentModelConvert"></bean>
+	
 	<bean id="studentDao" class="com.training.common.dao.impl.StudentDaoImpl">
 		<property name="commonDao" ref="commonDao"></property>
 	</bean>
-
+	<bean id="commonService" class="com.training.common.service.CommonService">
+		<property name="commonDao" ref="commonDao"></property>
+	</bean>
 </beans>
