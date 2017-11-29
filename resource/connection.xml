@@ -13,13 +13,14 @@
 
 	<context:property-placeholder location="classpath:jdbc.properties" />
 
-	<bean id="myDataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+	<bean id="myDataSource" class="com.training.test.BasicDataSource2"
 		destroy-method="close">
 		<property name="driverClassName" value="${jdbc.driver}" />
 		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.username}" />
+		<property name="name" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
 	</bean>
+	
 	
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="myDataSource"/>

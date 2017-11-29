@@ -72,6 +72,7 @@ public class StudentServiceImpl implements StudentService {
 	public void modifyStudent(StudentForm studentForm) {
 		StudentModel studentModel = studentModelConvert.convert2(studentForm);
 		commonService.saveOrUpdateEntity(studentModel);
+		
 
 	}
 
