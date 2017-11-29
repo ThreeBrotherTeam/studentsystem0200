@@ -53,13 +53,13 @@ public class LoginController {
 			return "user/login";
 		}
 
-		session.setAttribute("userData", userData);
-
 		if (userForm.isRememberMe()) {
 			Cookie c = new Cookie("rememberMe", userForm.getName() + "(&)" + userForm.getPassword());
 			c.setMaxAge(60 * 60 * 24 * 3);
 			response.addCookie(c);
 		}
+
+		session.setAttribute("userData", userData);
 
 		return "redirect:loadStudentsByFields";
 	}

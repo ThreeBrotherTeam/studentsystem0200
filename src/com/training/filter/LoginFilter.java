@@ -69,17 +69,19 @@ public class LoginFilter implements Filter {
 					}
 					if (rememberMe != null) {
 						String token = rememberMe.getValue();
-						String[] str = token.split("\\(\\$\\)");
+						String[] str = token.split("\\(\\&\\)");
 						String name = str[0];
 						String password = str[1];
 						WebApplicationContext ctx = WebApplicationContextUtils
 								.getRequiredWebApplicationContext(req.getServletContext());
 						UserService userService = ctx.getBean(UserService.class);
 						data = userService.queryUserByNameAndPassword(name, password);
+						chain.doFilter(req, resp);
+					} else {
+						resp.sendRedirect("login");
 					}
-					resp.sendRedirect("login");
 				} else {
-					chain.doFilter(req, resp);
+					resp.sendRedirect("login");
 				}
 			}
 		}

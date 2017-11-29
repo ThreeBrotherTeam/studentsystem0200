@@ -20,7 +20,7 @@
 		<c:if test="${not empty name }">
 			<font color="red">${name }</font>
 		</c:if>
-		<spring:message code="user.password"/>：<form:input path="password"/><br>
+		<spring:message code="user.password"/>：<form:password path="password"/><br>
 		<c:if test="${not empty password }">
 			<font color="red">${password }</font>
 		</c:if>
