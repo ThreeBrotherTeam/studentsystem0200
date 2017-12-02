@@ -9,7 +9,6 @@
 
 	<import resource="classpath:connection.xml" />
 
-
 	<bean id="userDao" class="com.training.dao.impl.UserDaoImpl">
 		<property name="commonDao" ref="commonDao"/>
 	</bean>
@@ -32,6 +31,9 @@
 	<bean id="convert" class="com.training.convert.StudentConvert"></bean>
 	<bean id="studentDao" class="com.training.common.dao.impl.StudentDaoImpl">
 		<property name="commonDao" ref="commonDao"></property>
+	</bean>
+	
+	<bean id="smsService" class="com.training.common.service.impl.SMSServiceImpl">
 	</bean>
 
 </beans>

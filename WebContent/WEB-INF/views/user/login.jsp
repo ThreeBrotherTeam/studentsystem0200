@@ -6,8 +6,30 @@
 <!DOCTYPE html >
 <html>
 <head>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>login</title>
+
+<script type="text/javascript" src="<%=path%>/ui/js/jquery-1.10.0.js"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		$("a.getSMScode").on("click",function(){
+			$.ajax({
+				url:"sms",
+				type:"get",
+				data:{"mobile":$("input[name='mobile']").val()},
+				success:function(result){
+					console.info(result);
+				}
+			});
+		});
+	});
+</script>
 </head>
 <body>
 	<h1>login</h1>
@@ -29,5 +51,19 @@
 		<spring:message code="user.rememberMe" />：<form:checkbox path="rememberMe"/><br>
 		<input type="submit" value='<spring:message code="user.login" />'/>
 	</form:form>
+	
+	<br>
+	
+	<br>
+	<br>
+	
+	<hr>
+		<form action="smsLogin" method="post">
+			手机号:<input type="text" name="mobile"/><a class="getSMScode">获取验证码</a><br>
+			短信验证码<input type="text" name="smsCode"/><br>
+			<input type="submit" value="login"/>
+		</form>
+		
+	<hr>
 </body>
 </html>
