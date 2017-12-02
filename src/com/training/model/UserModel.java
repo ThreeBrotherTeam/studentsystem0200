@@ -7,16 +7,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "user")
-public class UserModel {
+public class UserModel
+{
 
 	public static final String NAME = "name";
 	public static final String PASSWORD = "password";
-	public static final Object ID = "id";
-	public static final Object MOBILE = "mobile";
-	public static final Object AVAILABLE = "available";
-	public static final Object CREATEDATE = "createDate";
+	public static final String ID = "id";
+	public static final String MOBILE = "mobile";
+	public static final String AVAILABLE = "available";
+	public static final String CREATEDATE = "createDate";
 	private Integer id;
 	private String name;
 	private String mobile;
@@ -28,59 +30,73 @@ public class UserModel {
 
 	@Id
 	@GeneratedValue
-	public Integer getId() {
+	public Integer getId()
+	{
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Integer id)
+	{
 		this.id = id;
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name)
+	{
 		this.name = name;
 	}
 
-	public String getPassword() {
+	public String getPassword()
+	{
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(String password)
+	{
 		this.password = password;
 	}
 
-	public String getMobile() {
+	public String getMobile()
+	{
 		return mobile;
 	}
 
-	public void setMobile(String mobile) {
+	public void setMobile(String mobile)
+	{
 		this.mobile = mobile;
 	}
 
-	public Date getCreateDate() {
+	public Date getCreateDate()
+	{
 		return createDate;
 	}
 
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(Date createDate)
+	{
 		this.createDate = createDate;
 	}
 
-	public Date getUpdateDate() {
+	public Date getUpdateDate()
+	{
 		return updateDate;
 	}
 
-	public void setUpdateDate(Date updateDate) {
+	public void setUpdateDate(Date updateDate)
+	{
 		this.updateDate = updateDate;
 	}
 
-	public Boolean getAvailable() {
+	public Boolean getAvailable()
+	{
 		return available;
 	}
 
-	public void setAvailable(Boolean available) {
+	public void setAvailable(Boolean available)
+	{
 		this.available = available;
 
 	}
